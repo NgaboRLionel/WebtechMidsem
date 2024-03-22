@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Academic Units List</title>
+</head>
+<body>
+<th:block th:include="header"></th:block>
+
+<h2>List of Academic Units</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Unit Type</th>
+        <th>Parent</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="academicUnit : ${academicUnits}">
+        <td th:text="${academicUnit.id}"></td>
+        <td th:text="${academicUnit.name}"></td>
+        <td th:text="${academicUnit.unit}"></td>
+        <td th:if="${academicUnit.parent != null}" th:text="${academicUnit.parent.name}">No Parent</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+
+<!--<!doctype html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org" lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>Document</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<th:block th:include="header"></th:block>-->
+<!--<h2>Semester List</h2>-->
+<!--&lt;!&ndash;<button> <a th:href="@{/addSem}" >Add semester</a></button>&ndash;&gt;-->
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>PROGRAM</th>-->
+<!--        <th>FACULTY</th>-->
+<!--        <th>DEPARTMENT</th>-->
+<!--        <th>Action</th>-->
+
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="acd:${academ}">-->
+<!--        <td th:text="${acd.code}"></td>-->
+<!--        <td th:text="${acd.name}"></td>-->
+<!--        <td th:text="${acd.unit}"></td>-->
+
+<!--        <td>-->
+<!--&lt;!&ndash;            <a><button th:href="@{/updateSemester/{id}(id=${semesters.id})}">Update</button></a>&ndash;&gt;-->
+<!--            <button><a th:href="@{/deleteAcademic/{id}(id=${acd.id})}">Delete</a></button>-->
+<!--        </td>-->
+
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->

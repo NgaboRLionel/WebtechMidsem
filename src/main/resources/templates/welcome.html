@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to My Website</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+  </head>
+  <body>
+  <div th:include="header.html :: header"></div>
+    <main class="content">
+      <!-- Your content here -->
+    </main>
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2023 Your Company</p>
+      </div>
+    </footer>
+  </body>
+</html>

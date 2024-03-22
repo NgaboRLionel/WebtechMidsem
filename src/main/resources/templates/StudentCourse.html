@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>std_course</title>
+</head>
+<body>
+<th:block th:include="header"></th:block>
+<div class="actions">
+	<div class="hd">
+		<h3>Add/Update STUDENT_COURSE</h3>
+	</div>
+	<form th:action="@{/saveStdCourse}" th:object="${stdCourse}" method="post" id="form">
+		<input type="hidden" id="id" name="id" />
+		<div class="form-input">
+			<label for="regNo">Select St Registration</label>
+			<select name="regNo" id="regNo" th:field="*{studentRegistration}">
+				<option value="sel">Select Std...</option>
+				<option th:each="r : ${stdRg}" th:value="${r.id}" th:text="${r.student.fullname}"></option>
+			</select>
+		</div>
+		<div class="form-input">
+			<label for="course">Select Course</label>
+			<select name="course" id="course" th:field="*{course}">
+				<option value="s">Select Course</option>
+				<option th:each="c : ${cour}" th:value="${c.id}" th:text="${c.courseDefinition.name}"></option>
+			</select>
+		</div>
+		<div class="form-input">
+			<label for="credits">Enter Credits</label>
+			<input type="number" name="credits" id="credits" required/>
+		</div>
+		<div class="form-input">
+			<label for="results">Enter results</label>
+			<input type="text" name="results" id="results" required/>
+		</div>
+		<input type="submit" id="formBtn" value="Submit" />
+	</form>
+    </div>
+</div>
+</body>
+</html>
+

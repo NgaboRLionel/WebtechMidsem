@@ -1,0 +1,38 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<th:block th:include="header"></th:block>
+<!--<h2>Semester List</h2>-->
+<button> <a th:href="@{/addCountry}" >Countries</a></button>
+<table>
+  <thead>
+  <tr>
+    <th>Code</th>
+    <th>name</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="countries:${country}">
+    <td th:text="${countries.code}"></td>
+    <td th:text="${countries.name}"></td>
+
+
+
+    <td>
+      <button><a th:href="@{/deleteCountry/{Id}(Id=${countries.id})}">Delete</a></button>
+    </td>
+
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>please buy now!!!</title>
+</head>
+<body>
+<th:block th:include="header"></th:block>
+<div id="facultyForm">
+    <div class="hd">
+        <h3>Add Faculty</h3>
+    </div>
+    <form th:action="@{/saveFaculty}" th:object="${faculty}" method="post">
+        <div class="form-input">
+            <label for="programme1">Choose Programme</label>
+                <select name="parentProgramId" id="programme1" th:field="*{parent}">
+
+                <option value="">Select Programme</option>
+                <option th:each="program : ${programs}" th:value="${program.id}" th:text="${program.name}"></option>
+            </select>
+        </div>
+        <div class="form-input">
+            <label for="faculty">Faculty Name</label>
+            <input type="text" name="faculty" id="faculty" th:field="*{name}" />
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>

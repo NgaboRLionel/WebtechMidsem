@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>please buy now!!!</title>
+</head>
+<body>
+<th:block th:include="header"></th:block>
+<div id="facultyForm">
+    <div class="hd">
+        <h3>Add Faculty</h3>
+    </div>
+    <form th:action="@{/saveDepartment}" th:object="${department}" method="post">
+        <div class="form-input">
+            <label for="programme1">Choose faculty</label>
+            <select name="parentProgramId" id="programme1" th:field="*{parent}">
+                <option value="">Select faculty</option>
+                <option th:each="program : ${programs}" th:value="${program.id}" th:text="${program.name}"></option>
+            </select>
+        </div>
+        <div class="form-input">
+            <label for="faculty">Department Name</label>
+            <input type="text" name="faculty" id="faculty" th:field="*{name}" />
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+
+<!--<head>-->
+<!--    <link rel="stylesheet" type="text/css" href="style.css">-->
+<!--    <title>please buy now!!!</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<th:block th:include="header"></th:block>-->
+<!--<div id="departmentForm">-->
+<!--    <div class="hd">-->
+<!--        <h3>Add Department</h3>-->
+<!--    </div>-->
+<!--    <form th:action="@{/saveDepartment}" th:object="${department}" method="post">-->
+<!--        <div class="form-input">-->
+<!--            <label for="programme2">Choose Programme</label>-->
+<!--&lt;!&ndash;            <select name="programme" id="programme2" th:field="*{parent}">&ndash;&gt;-->
+<!--&lt;!&ndash;                <option value="">Select Programme</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                <option th:each="program : ${pro}" th:value="${program.id}" th:text="${program.name}"></option>&ndash;&gt;-->
+<!--&lt;!&ndash;            </select>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="form-input">-->
+<!--            <label for="faculty1">Choose faculty</label>-->
+<!--            <select name="faculty" id="faculty1" th:field="*{parent.parent}">-->
+<!--                <option value="">Select Faculty</option>-->
+<!--                <option th:each="faculty : ${faculties}" th:value="${faculty.id}" th:text="${faculty.name}"></option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--        <div class="form-input">-->
+<!--            <label for="department">Department Name</label>-->
+<!--            <input type="text" name="department" id="department" th:field="*{name}" />-->
+<!--        </div>-->
+<!--        <button type="submit">Submit</button>-->
+<!--    </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

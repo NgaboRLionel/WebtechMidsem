@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>List Students by Semester</title>
+</head>
+<body>
+<th:block th:include="header"></th:block>
+<h2>List Students by Semester</h2>
+
+<form th:action="@{/listStudents}" method="get">
+  <div class="form-input">
+    <label for="semester">Select Semester</label>
+    <select name="semester" id="semester">
+      <option value="1">Semester 1</option>
+      <option value="2">Semester 2</option>
+      <option value="3">Semester 3</option>
+      <!-- Add more semesters as needed -->
+    </select>
+  </div>
+  <button type="submit">Get Students</button>
+</form>
+
+<!-- Display students here -->
+<div th:if="${students}">
+  <h3>Students in the selected semester:</h3>
+  <ul>
+    <li th:each="student : ${students}" th:text="${student.student.fullname}"></li>
+  </ul>
+</div>
+</body>
+</html>

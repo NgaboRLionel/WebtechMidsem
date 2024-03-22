@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>registration</title>
+</head>
+<body>
+<th:block th:include="header"></th:block>
+<h1>New Student Registration</h1>
+<form th:action="@{/saveReg}" th:object="${reg}" method="post">
+<!--    <div class="form-input">-->
+<!--        <label for="unit">Select Academic Unit</label>-->
+<!--        <select name="unit" id="unit"  th:href="*{unit}">-->
+<!--            <option value="">Select Unit</option>-->
+<!--            <option name="unit" th:each="un : ${units}" th:value="un."></option>-->
+<!--        </select>-->
+<!--    </div>-->
+    <div class="sem">
+        <label for="semester">Select Semester</label>
+        <select name="semester"  id="semester" th:field="*{semester}" >
+            <option value="select">Select sem...</option>
+             <option name="sName" th:each="sm : ${semesters}"  th:value="${sm.id}" th:text="${sm.name}"></option>
+        </select>
+    </div>
+    <div class="std">
+        <label for="student">Select Student</label>
+        <select name="student"  id="student" th:field="*{student}">
+            <option value="selects">Select Student...</option>
+            <option th:each=" st : ${students}" th:value="${st.id}" th:text="${st.fullname}"></option>
+        </select>
+    </div>
+<!--    <select name="status" th:field="*{registrationStatus}">-->
+<!--        <option>PENDING</option>-->
+<!--        <option>APPROVED</option>-->
+<!--        <option>REJECTED</option>-->
+<!--    </select>-->
+    <button  type="submit" id="signupSubmitButton">Add</button>
+</form>
+</body>
+</html>

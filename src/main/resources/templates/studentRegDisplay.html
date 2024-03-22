@@ -1,0 +1,40 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<th:block th:include="header"></th:block>
+<!--<h2>Semester List</h2>-->
+<button> <a th:href="@{/addTea}" >Add teacher</a></button>
+<table>
+    <thead>
+    <tr>
+        <th>Semester</th>
+        <th>Student</th>
+        <th>RegistrationDate</th>
+        <th>Status</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="r:${regs}">
+        <td th:text="${r.semester.name}"></td>
+        <td th:text="${r.student.fullname}"></td>
+        <td th:text="${r.registrationDate}"></td>
+        <td th:text="${r.registrationStatus}"></td>
+
+        <td>
+            <button><a th:href="@{/deleteReg/{id}(id=${r.id})}">Delete</a></button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

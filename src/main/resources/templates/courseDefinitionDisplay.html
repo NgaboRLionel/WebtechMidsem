@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<th:block th:include="header"></th:block>
+<h2>Semester List</h2>
+<button> <a th:href="@{/addDef}" >Define New Course</a></button>
+<table>
+    <thead>
+    <tr>
+        <th>CourseCode</th>
+        <th>CourseName</th>
+        <th>CourseDescription</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="df:${definition}">
+        <td th:text="${df.code}"></td>
+        <td th:text="${df.name}"></td>
+        <td th:text="${df.description}"></td>
+
+        <td>
+<!--            <a><button th:href="@{/updateSemester/{id}(id=${semesters.id})}">Update</button></a>-->
+            <button><a th:href="@{/deleteDefinition/{id}(id=${df.id})}">Delete</a></button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
